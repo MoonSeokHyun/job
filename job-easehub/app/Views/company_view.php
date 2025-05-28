@@ -167,8 +167,6 @@
 </head>
 <body>
 
-<?php include 'includes/header.php'; ?>
-
 
     <div class="hero">
         <h2>당신이 원하는 스타트업 정보를 한 곳에서</h2>
@@ -227,9 +225,6 @@
             </div>
         </section>
     </div>
-
-    <?php include 'includes/footer.php'; ?>
-
 
 <script>
     // Example search functionality
