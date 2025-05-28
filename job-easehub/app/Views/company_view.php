@@ -167,7 +167,7 @@
 </head>
 <body>
 
-<?php include APPPATH . 'Views/includes/header.php'; ?>
+<?php include '/Users/munseoghyeon/Desktop/park/job/job-easehub/app/Views/includes/header.php'; ?>
 
     <div class="hero">
         <h2>당신이 원하는 스타트업 정보를 한 곳에서</h2>
@@ -227,7 +227,7 @@
         </section>
     </div>
 
-<?php include APPPATH . 'Views/includes/footer.php'; ?>
+<?php include '/Users/munseoghyeon/Desktop/park/job/job-easehub/app/Views/includes/footer.php'; ?>
 
 <script>
     // Example search functionality
