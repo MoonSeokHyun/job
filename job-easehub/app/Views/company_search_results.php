@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>잡허브 - 검색 결과</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6686738239613464" crossorigin="anonymous"></script>
     <style>
         body {
             font-family: 'Segoe UI', sans-serif;
@@ -110,6 +111,14 @@
         <h2>검색 결과</h2>
         <p>검색어: <strong><?= esc($searchQuery) ?></strong></p>
     </div>
+    <div class="ad-box">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6686738239613464"
+           data-ad-slot="1204098626"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
 
     <div class="container">
         <h2>검색된 기업들</h2>
@@ -130,6 +139,14 @@
                 </div>
             <?php endif; ?>
         </div>
+    </div>
+    <div class="ad-box">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6686738239613464"
+           data-ad-slot="1204098626"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
     </div>
 
 <?php include APPPATH . 'Views/includes/footer.php'; ?>

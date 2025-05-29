@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>잡허브 - 기업 리뷰 사이트</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6686738239613464" crossorigin="anonymous"></script>
     <style>
         :root {
             --theme-color: #FADB5F; /* 파스텔 노랑 */
@@ -167,6 +168,14 @@
 </head>
 <body>
 <?php include APPPATH . 'Views/includes/header.php'; ?>
+<div class="ad-box">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6686738239613464"
+           data-ad-slot="1204098626"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
 
     <div class="hero">
         <h2>당신이 원하는 스타트업 정보를 한 곳에서</h2>
@@ -201,6 +210,14 @@
         <p>"팀워크가 뛰어난 기업이며 직원들의 의견을 존중합니다."</p>
     </div>
 </div>
+<div class="ad-box">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6686738239613464"
+           data-ad-slot="1204098626"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
 
         <!-- 활용 대상 Section -->
         <section class="utilization-section">

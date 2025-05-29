@@ -23,7 +23,7 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6686738239613464" crossorigin="anonymous"></script>
     <!-- 스타일 -->
     <style>
         body {
@@ -277,6 +277,14 @@
 
     <!-- Header -->
     <?php include APPPATH . 'Views/includes/header.php'; ?>
+    <div class="ad-box">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6686738239613464"
+           data-ad-slot="1204098626"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
 
     <div class="container">
         <!-- Company Info Section -->
@@ -370,6 +378,14 @@
             <div class="tab-link active" id="company-tab">기업 리뷰</div>
             <div class="tab-link" id="interview-tab">면접 리뷰</div>
         </div>
+        <div class="ad-box">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6686738239613464"
+           data-ad-slot="1204098626"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
 
         <!-- Company Review Form and Display -->
         <div class="reviews active" id="company-review">
@@ -487,6 +503,14 @@
             companyReview.classList.remove('active');
         });
     </script>
+    <div class="ad-box">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6686738239613464"
+           data-ad-slot="1204098626"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
 
     <?php include APPPATH . 'Views/includes/footer.php'; ?>
 </body>
