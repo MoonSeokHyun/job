@@ -33,14 +33,14 @@
 if (window.location.hostname !== "localhost" && window.location.hostname !== "127.0.0.1") {
     // 로컬 환경이 아니면 카운팅을 수행
     if (!wcs_add) var wcs_add = {};
-    wcs_add["wa"] = "118e129bfaa8a90";
+    wcs_add["wa"] = "12d294cc6ae2890";
     if (window.wcs) {
         wcs_do();
     }
 }
 </script>
 
-
+	
 <!-- 스타일 -->
 <style>
   footer {
