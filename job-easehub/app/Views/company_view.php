@@ -208,7 +208,7 @@
             <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
                 <div class="utilization-card">
                     <div>🇰🇷</div>
-                    <div class="title">대한민국 국민 누구나!</div>
+                    <div class="title">대한민국 국민 누구나!!</div>
                 </div>
                 <div class="utilization-card">
                     <div>🏛️</div>
