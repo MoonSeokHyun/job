@@ -29,5 +29,18 @@ class CompanyModel extends Model
         'News Title',
         'News URL'
     ];
-    protected $useTimestamps = false; // Set to true if you want automatic timestamps for created_at/updated_at
+    protected $useTimestamps = false;
+
+    // 전체 기업 수 가져오기
+    public function countAllCompanies()
+    {
+        return $this->countAllResults();
+    }
+
+    // 10000개씩 기업 정보 가져오기
+    public function getCompaniesForSitemap($limit, $offset)
+    {
+        return $this->orderBy('id', 'ASC')
+                    ->findAll($limit, $offset);
+    }
 }
