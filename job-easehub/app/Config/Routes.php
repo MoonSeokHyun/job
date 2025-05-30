@@ -16,3 +16,8 @@ $routes->get('/interview_reviews/index', 'InterviewReviews::index');
 // Sitemap 관련 라우팅
 $routes->get('sitemap', [SitemapController::class, 'index']);  // 사이트맵 인덱스 페이지
 $routes->get('sitemap/generate/(:num)', [SitemapController::class, 'generate']);  // 개별 사이트맵 페이지
+
+// 이벤트
+
+$routes->get('/event', 'EventController::index');
+$routes->get('/event/(:num)', 'EventController::detail/$1');

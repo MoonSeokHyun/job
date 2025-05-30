@@ -18,6 +18,13 @@
       </ul>
     </li>
 
+    <li class="menu-group">
+      <a href="#" class="dropdown-toggle">이벤트 ▾</a>
+      <ul class="sub-menu">
+        <li><a href="/event">이벤트</a></li>
+      </ul>
+    </li>
+
 
   </nav>
 </div>
