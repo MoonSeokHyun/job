@@ -37,7 +37,7 @@ class SitemapController extends Controller
         $businessPages = (int) ceil($totalBusinesses / $this->perPage);
 
         for ($i = 1; $i <= $businessPages; $i++) {
-            $loc  = base_url("sitemap/generate/business/detail/{$i}");
+            $loc  = base_url("sitemap/generate/business/{$i}");
             $xml .= "  <sitemap>\n";
             $xml .= "    <loc>{$loc}</loc>\n";
             $xml .= "    <lastmod>" . date('Y-m-d') . "</lastmod>\n";
@@ -84,7 +84,7 @@ class SitemapController extends Controller
 
             foreach ($items as $business) {
                 // 예를 들어 사업체 상세 페이지 URL이 business/{id}라고 가정
-                $url = base_url("business/{$business['id']}");
+                $url = base_url("business/detail/{$business['id']}");
 
                 // 사업체 테이블에 lastmod 컬럼이 없으면 오늘 날짜로 대체
                 $lastmod = date('Y-m-d');
