@@ -21,3 +21,8 @@ $routes->get('sitemap/generate/(:num)', [SitemapController::class, 'generate']);
 
 $routes->get('/event', 'EventController::index');
 $routes->get('/event/(:num)', 'EventController::detail/$1');
+
+// 회사
+
+$routes->get('business', 'Business::index');
+$routes->get('business/detail/(:num)', 'Business::detail/$1');

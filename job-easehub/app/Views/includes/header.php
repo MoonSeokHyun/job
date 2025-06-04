@@ -11,10 +11,17 @@
     <ul class="top-menu">
       <!-- 서비스 -->
       <li class="menu-group">
-      <a href="#" class="dropdown-toggle">🛠️ 서비스 ▾</a>
+      <a href="#" class="dropdown-toggle">서비스 ▾</a>
       <ul class="sub-menu">
         <li><a href="/company_reviews/index">💇 기업리뷰</a></li>
         <li><a href="/interview_reviews/index">🏢 면접리뷰</a></li>
+      </ul>
+    </li>
+
+    <li class="menu-group">
+      <a href="#" class="dropdown-toggle">기업▾</a>
+      <ul class="sub-menu">
+        <li><a href="/business">💇 기업정보</a></li>
       </ul>
     </li>
 
