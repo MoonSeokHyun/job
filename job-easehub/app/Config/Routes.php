@@ -14,8 +14,9 @@ $routes->get('/company_reviews/index', 'CompanyReviews::index');
 $routes->get('/interview_reviews/index', 'InterviewReviews::index');
 
 // Sitemap 관련 라우팅
-$routes->get('sitemap', [SitemapController::class, 'index']);  // 사이트맵 인덱스 페이지
-$routes->get('sitemap/generate/(:num)', [SitemapController::class, 'generate']);  // 개별 사이트맵 페이지
+$routes->get('sitemap', 'SitemapController::index');              // 사이트맵 인덱스
+$routes->get('sitemap/generate/(:segment)/(:num)', 'SitemapController::generate/$1/$2');  // 개별 사이트맵 (company/business + 페이지)
+
 
 // 이벤트
 
