@@ -37,7 +37,7 @@ class SitemapController extends Controller
         $businessPages = (int) ceil($totalBusinesses / $this->perPage);
 
         for ($i = 1; $i <= $businessPages; $i++) {
-            $loc  = base_url("sitemap/generate/business/{$i}");
+            $loc  = base_url("sitemap/generate/business/detail/{$i}");
             $xml .= "  <sitemap>\n";
             $xml .= "    <loc>{$loc}</loc>\n";
             $xml .= "    <lastmod>" . date('Y-m-d') . "</lastmod>\n";
