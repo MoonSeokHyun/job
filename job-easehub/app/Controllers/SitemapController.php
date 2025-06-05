@@ -69,11 +69,10 @@ class SitemapController extends Controller
                 $url = base_url("company/{$company['id']}");
 
                 $lastmod = !empty($company['Date of Publication']) ? date('Y-m-d', strtotime($company['Date of Publication'])) : date('Y-m-d');
-
                 $xml .= "  <url>\n";
                 $xml .= "    <loc>{$url}</loc>\n";
-                $xml .= "    <lastmod>{$lastmod}</lastmod>\n";
-                $xml .= "    <changefreq>monthly</changefreq>\n";
+                $xml .= "    <lastmod>" . date('Y-m-d') . "</lastmod>\n";
+                $xml .= "    <changefreq>daily</changefreq>\n";
                 $xml .= "    <priority>0.8</priority>\n";
                 $xml .= "  </url>\n";
             }
@@ -91,10 +90,11 @@ class SitemapController extends Controller
 
                 $xml .= "  <url>\n";
                 $xml .= "    <loc>{$url}</loc>\n";
-                $xml .= "    <lastmod>{$lastmod}</lastmod>\n";
-                $xml .= "    <changefreq>monthly</changefreq>\n";
+                $xml .= "    <lastmod>" . date('Y-m-d') . "</lastmod>\n";
+                $xml .= "    <changefreq>daily</changefreq>\n";
                 $xml .= "    <priority>0.7</priority>\n";
                 $xml .= "  </url>\n";
+                
             }
         } else {
             // 타입이 잘못된 경우 빈 XML 반환

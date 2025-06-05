@@ -20,6 +20,21 @@ class CompanyController extends BaseController
         return view('company_view', ['companies' => $companies]);
     }
 
+    public function startUp()
+    {
+        $companyModel = new CompanyModel();
+    
+        // 페이지네이션 설정
+        $perPage = 12;
+        $data = [
+            'companies' => $companyModel->paginate($perPage),
+            'pager' => $companyModel->pager,
+        ];
+    
+        return view('company/startUp', $data);
+    }
+    
+
     public function search()
     {
         // 사용자가 입력한 검색어 받기

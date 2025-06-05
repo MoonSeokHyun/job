@@ -199,6 +199,14 @@
     </div>
 
         <section class="info-section">
+        <div class="ad-box">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6686738239613464"
+           data-ad-slot="1204098626"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
             <h3 class="info-title">기업 정보</h3>
             <p><strong>설립일:</strong> <?= esc($company['Establishment Date']) ?></p>
             <p><strong>직원 수:</strong> <?= esc($company['Number of Employees']) ?>명</p>

@@ -22,6 +22,7 @@
       <a href="#" class="dropdown-toggle">기업▾</a>
       <ul class="sub-menu">
         <li><a href="/business">💇 기업정보</a></li>
+        <li><a href="/company">🏢 스타트업</a></li>
       </ul>
     </li>
 

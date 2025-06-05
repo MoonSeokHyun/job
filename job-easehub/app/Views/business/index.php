@@ -66,6 +66,54 @@
             text-align: center;
             margin-top: 2rem;
         }
+
+        .pagination {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.pagination ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    gap: 0.5rem;
+}
+
+.pagination li {
+}
+
+.pagination li a,
+.pagination li span {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: #0078ff;
+    border: 1px solid #0078ff;
+    transition: background-color 0.2s, color 0.2s;
+    cursor: pointer;
+}
+
+.pagination li a:hover {
+    background-color: #0078ff;
+    color: #fff;
+}
+
+.pagination li.active span {
+    background-color: #0078ff;
+    color: #fff;
+    border-color: #0078ff;
+    cursor: default;
+}
+
+.pagination li.disabled span {
+    color: #aaa;
+    border-color: #ddd;
+    cursor: default;
+}
+
     </style>
 </head>
 <body>
@@ -79,7 +127,6 @@
         <?php foreach ($businesses as $b): ?>
             <div class="card">
                 <div class="card-title"><?= esc($b['business_name']) ?></div>
-                <div class="card-detail">ID: <?= esc($b['id']) ?></div>
                 <div class="card-detail">우편번호: <?= esc($b['zip_code']) ?></div>
                 <div class="card-detail">업종: <?= esc($b['business_type']) ?></div>
                 <div class="view-link">

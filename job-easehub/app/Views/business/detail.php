@@ -40,6 +40,7 @@ $seoKeywords = esc("{$facilityName}, 사업장, {$district}, 업종, 주소, 사
     .value{ color:#555; text-align:right; }
   </style>
 </head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6686738239613464" crossorigin="anonymous"></script>
 <body>
 
 <?php include APPPATH . 'Views/includes/header.php'; ?>

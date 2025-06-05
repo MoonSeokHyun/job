@@ -27,3 +27,6 @@ $routes->get('/event/(:num)', 'EventController::detail/$1');
 
 $routes->get('business', 'Business::index');
 $routes->get('business/detail/(:num)', 'Business::detail/$1');
+
+$routes->get('company', 'CompanyController::startUp');
+
