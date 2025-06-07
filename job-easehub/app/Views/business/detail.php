@@ -45,14 +45,19 @@ $seoKeywords = esc("{$facilityName}, 사업장, {$district}, 업종, 주소, 사
 
 <?php include APPPATH . 'Views/includes/header.php'; ?>
 
-<div class="ad-box">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-6686738239613464"
-       data-ad-slot="1204098626"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-</div>
+<section class="info-section">
+        <div class="ad-box">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6686738239613464"
+                data-ad-slot="1204098626"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        </section>
 
 <div class="container">
   <h1 class="content-title"><?= $facilityName ?></h1>
@@ -95,14 +100,19 @@ $seoKeywords = esc("{$facilityName}, 사업장, {$district}, 업종, 주소, 사
     </div>
   </div>
 
-  <div class="ad-box">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-6686738239613464"
-         data-ad-slot="1204098626"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-  </div>
+  <section class="info-section">
+        <div class="ad-box">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6686738239613464"
+                data-ad-slot="1204098626"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        </section>
 
   <!-- 복장 가이드 -->
   <div class="section">
@@ -125,14 +135,19 @@ $seoKeywords = esc("{$facilityName}, 사업장, {$district}, 업종, 주소, 사
   <p style="text-align:center;"><a href="<?= site_url('business') ?>">← 목록으로 돌아가기</a></p>
 </div>
 
-<div class="ad-box">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-6686738239613464"
-       data-ad-slot="1204098626"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-</div>
+<section class="info-section">
+        <div class="ad-box">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6686738239613464"
+                data-ad-slot="1204098626"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        </section>
 
 <?php include APPPATH . 'Views/includes/footer.php'; ?>
 

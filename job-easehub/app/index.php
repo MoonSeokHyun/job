@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>잡허브 - 기업 리뷰 사이트</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6686738239613464"
+      crossorigin="anonymous"
+    ></script>
+   <style>
         :root {
             --theme-color: #FADB5F; /* 파스텔 노랑 */
             --theme-text: #333;
@@ -175,6 +180,19 @@
         </form>
     </div>
 
+    <section class="info-section">
+        <div class="ad-box">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6686738239613464"
+                data-ad-slot="1204098626"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        </section>
     <div class="container">
         <h2>스타트업 및 대기업 리뷰</h2>
         <p>각 기업에 대한 리뷰를 확인하고, 여러분의 의견을 나누어 보세요.</p>
@@ -201,6 +219,19 @@
     </div>
 </div>
 
+<section class="info-section">
+        <div class="ad-box">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6686738239613464"
+                data-ad-slot="1204098626"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        </section>
         <!-- 활용 대상 Section -->
         <section class="utilization-section">
             <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">👥 활용 대상</h2>

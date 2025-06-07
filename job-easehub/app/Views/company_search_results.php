@@ -111,14 +111,20 @@
         <h2>검색 결과</h2>
         <p>검색어: <strong><?= esc($searchQuery) ?></strong></p>
     </div>
-    <div class="ad-box">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-6686738239613464"
-           data-ad-slot="1204098626"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-    </div>
+
+    <section class="info-section">
+        <div class="ad-box">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6686738239613464"
+                data-ad-slot="1204098626"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        </section>
 
     <div class="container">
         <h2>검색된 기업들</h2>
