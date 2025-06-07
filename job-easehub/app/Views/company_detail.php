@@ -189,24 +189,20 @@
         <h2 class="company-name">
             <?= esc($company['Company Name (Korean)']) ?> - <?= esc($company['Company Name (English)']) ?>
         </h2>
-        <div class="ad-box">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-6686738239613464"
-           data-ad-slot="1204098626"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-    </div>
 
         <section class="info-section">
         <div class="ad-box">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-6686738239613464"
-           data-ad-slot="1204098626"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-    </div>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6686738239613464"
+                data-ad-slot="1204098626"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        </section>
             <h3 class="info-title">기업 정보</h3>
             <p><strong>설립일:</strong> <?= esc($company['Establishment Date']) ?></p>
             <p><strong>직원 수:</strong> <?= esc($company['Number of Employees']) ?>명</p>
@@ -256,14 +252,20 @@
                 ?>
             </div>
         </section>
+
+        <section class="info-section">
         <div class="ad-box">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-6686738239613464"
-           data-ad-slot="1204098626"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-    </div>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6686738239613464"
+                data-ad-slot="1204098626"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        </section>
 
         <div class="tabs" role="tablist" aria-label="리뷰 탭">
             <div class="tab-link active" id="company-tab" role="tab" tabindex="0" aria-selected="true" aria-controls="company-review">기업 리뷰</div>
@@ -305,14 +307,20 @@
                 </article>
             <?php endforeach; ?>
         </section>
+
+        <section class="info-section">
         <div class="ad-box">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-6686738239613464"
-           data-ad-slot="1204098626"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-    </div>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6686738239613464"
+                data-ad-slot="1204098626"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        </section>
 
     </div>
 
