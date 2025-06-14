@@ -80,60 +80,7 @@ $seoKeywords = esc("{$facilityName}, 사업장, {$district}, 업종, 주소, 사
     </div>
   </div>
 
-  <!-- 면접 꿀팁 -->
-  <div class="section">
-    <h2>면접 꿀팁</h2>
-    <div class="detail-list">
-      <div class="detail-item"><div class="label">1. 회사 정보 파악</div><div class="value">웹사이트나 뉴스 자료를 통해 기업 정보를 숙지하세요.</div></div>
-      <div class="detail-item"><div class="label">2. 예상 질문 연습</div><div class="value">직무와 관련된 예상 질문에 대한 답변을 준비하세요.</div></div>
-      <div class="detail-item"><div class="label">3. 적극적인 자세</div><div class="value">성실하고 자신감 있게 자신의 의견을 표현하세요.</div></div>
-    </div>
-  </div>
-
-  <!-- 자주 묻는 질문 (FAQ) -->
-  <div class="section">
-    <h2>자주 묻는 질문 (FAQ)</h2>
-    <div class="detail-list">
-      <div class="detail-item"><div class="label">Q. 근무시간은 어떻게 되나요?</div><div class="value">사업장에 따라 상이하므로 별도 문의 필요.</div></div>
-      <div class="detail-item"><div class="label">Q. 재택근무 가능할까요?</div><div class="value">일부 직무에 한해 가능합니다.</div></div>
-      <div class="detail-item"><div class="label">Q. 복지는 어떤가요?</div><div class="value">기본 4대보험 제공, 세부 복지는 면접 시 안내.</div></div>
-    </div>
-  </div>
-
-  <section class="info-section">
-        <div class="ad-box">
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-6686738239613464"
-                data-ad-slot="1204098626"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-        </section>
-
-  <!-- 복장 가이드 -->
-  <div class="section">
-    <h2>복장 가이드</h2>
-    <div class="detail-list">
-      <div class="detail-item"><div class="label">면접</div><div class="value">단정한 정장 또는 세미 정장 권장</div></div>
-      <div class="detail-item"><div class="label">업무 중</div><div class="value">자유복장이지만 깔끔한 복장 유지</div></div>
-    </div>
-  </div>
-
-  <!-- 회사 문화 팁 -->
-  <div class="section">
-    <h2>회사 문화 팁</h2>
-    <div class="detail-list">
-      <div class="detail-item"><div class="label">커뮤니케이션</div><div class="value">수평적인 소통을 중요시함</div></div>
-      <div class="detail-item"><div class="label">워크라이프 밸런스</div><div class="value">야근은 지양하는 분위기</div></div>
-    </div>
-  </div>
-
-  <p style="text-align:center;"><a href="<?= site_url('business') ?>">← 목록으로 돌아가기</a></p>
-</div>
+  
 
 <section class="info-section">
         <div class="ad-box">
