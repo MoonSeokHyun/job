@@ -1,140 +1,159 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6686738239613464" crossorigin="anonymous"></script>
-<body>
+<?php include APPPATH . 'Views/includes/header.php'; ?>
 
-    <title>스타트업 목록</title>
-    <style>
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            background: #f9f9f9;
-            margin: 0; padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            color: #0078ff;
-        }
-        .company-list {
-            max-width: 900px;
-            margin: 1rem auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
-            gap: 1rem;
-        }
-        .company-card {
-            background: white;
-            border-radius: 8px;
-            padding: 1rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-        .company-name {
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-        .company-desc {
-            font-size: 0.9rem;
-            color: #555;
-            margin-bottom: 0.8rem;
-        }
-        .company-link a {
-            text-decoration: none;
-            color: white;
-            background: #0078ff;
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-        }
-        .company-link a:hover {
-            background: #0056cc;
-        }
+<style>
+  .container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
 
-        .pagination-wrapper {
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
     text-align: center;
-    margin-top: 2rem;
-}
+    margin-bottom: 2rem;
+    color: #1e293b;
+  }
 
-.pagination {
-    display: inline-flex;
+  .ad-box {
+    margin: 40px 0;
+    text-align: center;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.6rem;
+  }
+
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    padding: 1.4rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  }
+
+  .company-name {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: #111827;
+  }
+
+  .company-desc {
+    font-size: 0.95rem;
+    color: #4b5563;
+    margin-bottom: 0.35rem;
+  }
+
+  .company-link {
+    margin-top: auto;
+    text-align: right;
+  }
+
+  .company-link a {
+    background: #10b981;
+    color: #fff;
+    padding: 0.45rem 0.9rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s ease;
+  }
+
+  .company-link a:hover {
+    background: #0e9e6e;
+  }
+
+  .pagination {
+    text-align: center;
+    margin-top: 2.5rem;
+  }
+
+  .pagination ul {
     list-style: none;
     padding: 0;
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-}
-
-.pagination li {
     margin: 0;
-}
+    display: inline-flex;
+    gap: 0.5rem;
+  }
 
-.pagination li a,
-.pagination li span {
-    display: block;
-    padding: 0.6rem 1rem;
-    color: #0078ff;
-    background-color: #fff;
+  .pagination li a,
+  .pagination li span {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
     text-decoration: none;
-    border-right: 1px solid #eee;
-    font-size: 0.95rem;
-}
+    font-size: 0.9rem;
+    color: #0078ff;
+    border: 1px solid #0078ff;
+    transition: background-color 0.2s, color 0.2s;
+    cursor: pointer;
+  }
 
-.pagination li a:hover {
+  .pagination li a:hover {
     background-color: #0078ff;
     color: #fff;
-}
+  }
 
-.pagination li.active span {
+  .pagination li.active span {
     background-color: #0078ff;
     color: #fff;
-    font-weight: bold;
-}
+    border-color: #0078ff;
+    cursor: default;
+  }
 
-.pagination li.disabled span {
-    color: #ccc;
-    background-color: #f7f7f7;
-}
+  .pagination li.disabled span {
+    color: #aaa;
+    border-color: #ddd;
+    cursor: default;
+  }
+</style>
 
-    </style>
-</head>
-<body>
-<?php include APPPATH . 'Views/includes/header.php'; ?>
-<h1>스타트업 목록</h1>
-<div class="ad-box">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-6686738239613464"
-       data-ad-slot="1204098626"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-</div>
+<div class="container">
+  <h1>스타트업 목록</h1>
 
-<div class="company-list">
+  <div class="ad-box">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6686738239613464"
+         data-ad-slot="1204098626"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <div class="grid">
     <?php if (!empty($companies)): ?>
-        <?php foreach ($companies as $company): ?>
-            <div class="company-card">
-                <div class="company-name"><?= esc($company['Company Name (Korean)']) ?></div>
-                <div class="company-desc">종류: 일반기업</div>
-                <div class="company-desc">사원 수: <?= rand(1, 100) ?>명</div>
-                <div class="company-link">
-                    <a href="<?= site_url('company/' . $company['id']) ?>">자세히 보기</a>
-                </div>
-            </div>
-        <?php endforeach; ?>
+      <?php foreach ($companies as $company): ?>
+        <div class="card">
+          <div class="company-name"><?= esc($company['Company Name (Korean)']) ?></div>
+          <div class="company-desc">종류: 일반기업</div>
+          <div class="company-desc">사원 수: <?= rand(1, 100) ?>명</div>
+          <div class="company-link">
+            <a href="<?= site_url('company/' . $company['id']) ?>">자세히 보기</a>
+          </div>
+        </div>
+      <?php endforeach; ?>
     <?php else: ?>
-        <p>등록된 회사가 없습니다.</p>
+      <p style="text-align:center; color:#555;">등록된 회사가 없습니다.</p>
     <?php endif; ?>
-</div>
+  </div>
 
-<!-- 페이징 -->
-<div style="text-align:center; margin-top:2rem;">
+  <div class="pagination">
     <?= $pager->links() ?>
+  </div>
 </div>
-
 
 <?php include APPPATH . 'Views/includes/footer.php'; ?>
-</body>
-</html>

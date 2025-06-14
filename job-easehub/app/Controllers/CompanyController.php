@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\CompanyModel;
 use App\Models\CompanyReviewModel;
 use App\Models\InterviewReviewModel;
+use App\Models\NaverApiModel;
 
 class CompanyController extends BaseController
 {
@@ -63,6 +64,7 @@ class CompanyController extends BaseController
         $companyModel = new CompanyModel();
         $companyReviewModel = new CompanyReviewModel();
         $interviewReviewModel = new InterviewReviewModel();
+        $naverModel = new NaverApiModel();
 
         // 기업 정보 가져오기
         $company = $companyModel->find($id);
@@ -73,11 +75,37 @@ class CompanyController extends BaseController
         // 면접 리뷰 가져오기
         $interviewReviews = $interviewReviewModel->getInterviewReviewsByCompany($id);
 
+        $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+        $isBot = preg_match('/(bot|crawl|slurp|spider|mediapartners|daum)/i', $userAgent);
+        
+        if (!$isBot && !empty($company)) {
+            $name = $company['Company Name (Korean)'] ?? '';
+        
+            // 검색어 조합
+            $query = trim($name . ' 기업정보');
+        
+            if ($query) {
+                // 블로그 후기 가져오기
+                $blogResponse = $naverModel->blog($query);
+                if ($blogResponse) {
+                    $blog = json_decode($blogResponse, true);
+                }
+        
+                // 이미지 썸네일 가져오기
+                $imageResponse = $naverModel->image($query);
+                if ($imageResponse) {
+                    $images = json_decode($imageResponse, true);
+                }
+            }
+        }
+
         // 뷰로 데이터 전달
         return view('company_detail', [
             'company' => $company,
             'companyReviews' => $companyReviews,
-            'interviewReviews' => $interviewReviews
+            'interviewReviews' => $interviewReviews,
+            'blog' => $blog,
+            'images' => $images
         ]);
     }
 

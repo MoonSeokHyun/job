@@ -1,381 +1,175 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title><?= esc($company['Company Name (Korean)']) ?> 기업 후기 면접 후기 기업정보는 - 잡허브</title>
+<?php include APPPATH . 'Views/includes/header.php'; ?>
 
-    <!-- 메타 태그 최적화 -->
-    <meta name="description" content="<?= esc($company['One-liner Description']) ?>" />
-    <meta name="keywords" content="<?= esc($company['Company Name (Korean)']) ?>, 기업 리뷰, <?= esc($company['Industry Classification']) ?>, 잡허브" />
+<div class="container" style="max-width:1080px; margin:2rem auto; padding:0 1rem;">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="<?= esc($company['Company Name (Korean)']) ?> - 잡허브" />
-    <meta property="og:description" content="<?= esc($company['One-liner Description']) ?>" />
-    <meta property="og:url" content="<?= current_url() ?>" />
-    <meta property="og:type" content="website" />
+  <h1 style="font-size: 2rem; margin-bottom: .5rem; border-bottom: 2px solid #2e7d32; padding-bottom: .3rem;">
+    <?= esc($company['Company Name (Korean)']) ?> - <?= esc($company['Company Name (English)']) ?>
+  </h1>
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="<?= esc($company['Company Name (Korean)']) ?> - 잡허브" />
-    <meta name="twitter:description" content="<?= esc($company['One-liner Description']) ?>" />
-    <meta name="twitter:url" content="<?= current_url() ?>" />
+  <div style="font-size:.9rem; color:#555; margin-bottom:1.5rem;">
+    <a href="<?= site_url() ?>" style="color:#0078ff;">홈</a> &gt;
+    <a href="<?= site_url('company') ?>" style="color:#0078ff;">기업 목록</a> &gt;
+    상세정보
+  </div>
 
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
-
-    <!-- 광고 스크립트 -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6686738239613464"
-      crossorigin="anonymous"
-    ></script>
-
-    <!-- 스타일 -->
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background-color: #fafafa;
-            margin: 0;
-            padding: 0;
-            color: #212121;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 40px;
-            background-color: #fff;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-
-        h2, h3 {
-            color: #1a237e;
-            margin-top: 0;
-        }
-
-        .company-name {
-            font-size: 2.4rem;
-            margin-bottom: 1rem;
-            color: #0d47a1;
-        }
-
-        .info-section {
-            margin-top: 2rem;
-        }
-
-        .info-title {
-            font-size: 1.4rem;
-            font-weight: bold;
-            border-bottom: 2px solid #1a237e;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .industry-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .industry-tag {
-            background-color: #3949ab;
-            color: white;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.95rem;
-        }
-
-        .description p,
-        .detailed-description p,
-        .social-links p {
-            line-height: 1.6;
-            font-size: 1.05rem;
-        }
-
-        .tabs {
-            display: flex;
-            justify-content: center;
-            margin: 30px 0;
-            gap: 20px;
-        }
-
-        .tabs .tab-link {
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 10px;
-            background-color: #e3f2fd;
-            color: #0d47a1;
-            font-weight: bold;
-            user-select: none;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .tabs .tab-link.active {
-            background-color: #0d47a1;
-            color: white;
-        }
-
-        .reviews {
-            display: none;
-        }
-
-        .reviews.active {
-            display: block;
-        }
-
-        .review-card {
-            border: 1px solid #c5cae9;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 15px 0;
-            background-color: #f5f5f5;
-        }
-
-        form {
-            background-color: #e8eaf6;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-        }
-
-        form textarea,
-        form input,
-        form select,
-        form button {
-            width: 100%;
-            margin: 10px 0;
-            padding: 12px;
-            font-size: 1rem;
-            border-radius: 8px;
-            border: 1px solid #b0bec5;
-            box-sizing: border-box;
-        }
-
-        form button {
-            background-color: #1a237e;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        form button:hover {
-            background-color: #0d47a1;
-        }
-
-        /* 반응형 */
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-                margin: 20px auto;
-            }
-
-            .tabs {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <?php include APPPATH . 'Views/includes/header.php'; ?>
-
-    <div class="container">
-        <h2 class="company-name">
-            <?= esc($company['Company Name (Korean)']) ?> - <?= esc($company['Company Name (English)']) ?>
-        </h2>
-
-        <section class="info-section">
-        <div class="ad-box">
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-6686738239613464"
-                data-ad-slot="1204098626"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+  <div style="background:#fff; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.1); margin-bottom:1.5rem; padding:1.5rem;">
+    <h2 style="font-size:1.2rem; margin-bottom:1rem; color:#2e7d32; border-left:4px solid #2e7d32; padding-left:.5rem;">기업 정보</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:1rem;">
+      <div style="flex:1 1 45%; display:flex; justify-content:space-between; padding:.5rem 0; border-bottom:1px solid #eee;">
+        <strong>설립일</strong><span><?= esc($company['Establishment Date']) ?></span>
+      </div>
+      <div style="flex:1 1 45%; display:flex; justify-content:space-between; padding:.5rem 0; border-bottom:1px solid #eee;">
+        <strong>직원 수</strong><span><?= esc($company['Number of Employees']) ?>명</span>
+      </div>
+      <div style="flex:1 1 100%; padding:.5rem 0;">
+        <strong>업종</strong><br>
+        <div style="margin-top:.3rem;">
+          <?php foreach (explode('||', $company['Industry Classification']) as $tag): ?>
+            <span style="display:inline-block; background:#2e7d32; color:#fff; font-size:0.9rem; border-radius:12px; padding:4px 12px; margin:2px;">
+              <?= esc(trim($tag)) ?>
+            </span>
+          <?php endforeach; ?>
         </div>
-        </section>
-            <h3 class="info-title">기업 정보</h3>
-            <p><strong>설립일:</strong> <?= esc($company['Establishment Date']) ?></p>
-            <p><strong>직원 수:</strong> <?= esc($company['Number of Employees']) ?>명</p>
-            <div class="industry-tags">
-                <?php foreach (explode('||', $company['Industry Classification']) as $industry): ?>
-                    <span class="industry-tag"><?= esc(trim($industry)) ?></span>
-                <?php endforeach; ?>
-            </div>
-        </section>
-
-        <section class="info-section">
-            <h3 class="info-title">설명</h3>
-            <div class="description">
-                <?php foreach (explode('▦▦', $company['One-liner Description']) as $part): ?>
-                    <p><?= esc(trim($part)) ?></p>
-                <?php endforeach; ?>
-            </div>
-        </section>
-
-        <section class="info-section">
-            <h3 class="info-title">상세 설명</h3>
-            <div class="detailed-description">
-                <?php foreach (explode('▦▦', $company['Detailed Company Description']) as $part): ?>
-                    <p><?= esc(trim($part)) ?></p>
-                <?php endforeach; ?>
-            </div>
-        </section>
-
-        <section class="info-section">
-            <h3 class="info-title">사무실 주소</h3>
-            <p><?= esc($company['Office Address']) ?></p>
-        </section>
-
-        <section class="info-section">
-            <h3 class="info-title">연락처 및 링크</h3>
-            <div class="social-links">
-                <?php
-                $social_links = explode('|', $company['Social Media URL']);
-                foreach ($social_links as $link):
-                    $link = esc(trim($link));
-                    if ($link):
-                ?>
-                    <p><a href="<?= $link ?>" target="_blank" rel="noopener noreferrer"><?= $link ?></a></p>
-                <?php
-                    endif;
-                endforeach;
-                ?>
-            </div>
-        </section>
-
-        <section class="info-section">
-        <div class="ad-box">
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-6686738239613464"
-                data-ad-slot="1204098626"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-        </section>
-
-        <div class="tabs" role="tablist" aria-label="리뷰 탭">
-            <div class="tab-link active" id="company-tab" role="tab" tabindex="0" aria-selected="true" aria-controls="company-review">기업 리뷰</div>
-            <div class="tab-link" id="interview-tab" role="tab" tabindex="-1" aria-selected="false" aria-controls="interview-review">면접 리뷰</div>
-        </div>
-
-        <section class="reviews active" id="company-review" role="tabpanel" aria-labelledby="company-tab">
-            <form action="/company/<?= esc($company['id']) ?>/addCompanyReview" method="POST" aria-label="기업 리뷰 작성 폼">
-                <textarea name="review" placeholder="리뷰를 작성해 주세요..." required aria-required="true"></textarea>
-                <input type="number" name="rating" placeholder="별점 (1~5)" min="1" max="5" required aria-required="true" />
-                <button type="submit">리뷰 작성</button>
-            </form>
-
-            <?php foreach ($companyReviews as $review): ?>
-                <article class="review-card">
-                    <h4>리뷰</h4>
-                    <p><?= esc($review['review']) ?></p>
-                    <p><strong>별점:</strong> <?= esc($review['rating']) ?> / 5</p>
-                </article>
-            <?php endforeach; ?>
-        </section>
-
-        <section class="reviews" id="interview-review" role="tabpanel" aria-labelledby="interview-tab" hidden>
-            <form action="/company/<?= esc($company['id']) ?>/addInterviewReview" method="POST" aria-label="면접 리뷰 작성 폼">
-                <textarea name="review" placeholder="리뷰를 작성해 주세요..." required aria-required="true"></textarea>
-                <input type="number" name="rating" placeholder="별점 (1~5)" min="1" max="5" required aria-required="true" />
-                <select name="review_type" required aria-required="true">
-                    <option value="interview">면접</option>
-                    <option value="employee">직원</option>
-                </select>
-                <button type="submit">리뷰 작성</button>
-            </form>
-
-            <?php foreach ($interviewReviews as $review): ?>
-                <article class="review-card">
-                    <h4><?= esc($review['review_type'] == 'interview' ? '면접 리뷰' : '직원 리뷰') ?></h4>
-                    <p><?= esc($review['review']) ?></p>
-                    <p><strong>별점:</strong> <?= esc($review['rating']) ?> / 5</p>
-                </article>
-            <?php endforeach; ?>
-        </section>
-
-        <section class="info-section">
-        <div class="ad-box">
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-6686738239613464"
-                data-ad-slot="1204098626"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-        </section>
-
+      </div>
     </div>
+  </div>
 
-    <script>
-        const companyTab = document.getElementById('company-tab');
-        const interviewTab = document.getElementById('interview-tab');
-        const companyReview = document.getElementById('company-review');
-        const interviewReview = document.getElementById('interview-review');
+  <div style="background:#fff; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.1); margin-bottom:1.5rem; padding:1.5rem;">
+    <h2 style="font-size:1.2rem; margin-bottom:1rem; color:#2e7d32; border-left:4px solid #2e7d32; padding-left:.5rem;">기업 설명</h2>
+    <?php foreach (explode('▦▦', $company['One-liner Description']) as $part): ?>
+      <p style="line-height:1.6; font-size:1rem; color:#444;"><?= esc(trim($part)) ?></p>
+    <?php endforeach; ?>
+  </div>
 
-        function switchTab(selectedTab) {
-            if (selectedTab === 'company') {
-                companyTab.classList.add('active');
-                companyTab.setAttribute('aria-selected', 'true');
-                companyTab.setAttribute('tabindex', '0');
-                interviewTab.classList.remove('active');
-                interviewTab.setAttribute('aria-selected', 'false');
-                interviewTab.setAttribute('tabindex', '-1');
+  <div style="background:#fff; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.1); margin-bottom:1.5rem; padding:1.5rem;">
+    <h2 style="font-size:1.2rem; margin-bottom:1rem; color:#2e7d32; border-left:4px solid #2e7d32; padding-left:.5rem;">상세 설명</h2>
+    <?php foreach (explode('▦▦', $company['Detailed Company Description']) as $part): ?>
+      <p style="line-height:1.6; font-size:1rem; color:#444;"><?= esc(trim($part)) ?></p>
+    <?php endforeach; ?>
+  </div>
 
-                companyReview.classList.add('active');
-                companyReview.removeAttribute('hidden');
-                interviewReview.classList.remove('active');
-                interviewReview.setAttribute('hidden', '');
-            } else {
-                interviewTab.classList.add('active');
-                interviewTab.setAttribute('aria-selected', 'true');
-                interviewTab.setAttribute('tabindex', '0');
-                companyTab.classList.remove('active');
-                companyTab.setAttribute('aria-selected', 'false');
-                companyTab.setAttribute('tabindex', '-1');
+  <div style="background:#fff; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.1); margin-bottom:1.5rem; padding:1.5rem;">
+    <h2 style="font-size:1.2rem; margin-bottom:1rem; color:#2e7d32; border-left:4px solid #2e7d32; padding-left:.5rem;">사무실 주소</h2>
+    <p style="font-size:1rem; color:#444;"><?= esc($company['Office Address']) ?></p>
+  </div>
 
-                interviewReview.classList.add('active');
-                interviewReview.removeAttribute('hidden');
-                companyReview.classList.remove('active');
-                companyReview.setAttribute('hidden', '');
-            }
-        }
+  <div style="background:#fff; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.1); margin-bottom:1.5rem; padding:1.5rem;">
+    <h2 style="font-size:1.2rem; margin-bottom:1rem; color:#2e7d32; border-left:4px solid #2e7d32; padding-left:.5rem;">링크</h2>
+    <?php
+      $links = explode('|', $company['Social Media URL']);
+      foreach ($links as $link):
+        $link = trim($link);
+        if ($link):
+    ?>
+      <p><a href="<?= esc($link) ?>" target="_blank" rel="noopener" style="color:#0078ff;"><?= esc($link) ?></a></p>
+    <?php endif; endforeach; ?>
+  </div>
 
-        companyTab.addEventListener('click', () => switchTab('company'));
-        interviewTab.addEventListener('click', () => switchTab('interview'));
+  <?php if (!empty($blog['items'])): ?>
+    <div style="margin-bottom:2rem;">
+      <h3 style="font-size: 1.3rem; font-weight: 600; color: #2e7d32; margin-bottom: 1rem;">블로그 검색</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem;">
+        <?php foreach ($blog['items'] as $item): ?>
+          <a href="<?= esc($item['link']) ?>" target="_blank"
+             style="display:block; padding:1rem; background:#fff; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.05); text-decoration:none; color:#333;">
+            <div style="font-weight:600; font-size:1rem; color:#1b5e20; margin-bottom:.5rem;">
+              <?= strip_tags($item['title']) ?>
+            </div>
+            <div style="font-size:0.9rem; color:#555; margin-bottom:.5rem;">
+              <?= strip_tags($item['description']) ?>
+            </div>
+            <div style="font-size:0.8rem; color:#999;">
+              <?= esc($item['bloggername']) ?> · <?= date('Y.m.d', strtotime($item['postdate'])) ?>
+            </div>
+          </a>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  <?php endif; ?>
 
-        // 키보드 접근성 처리 (Tab 키 조작 등)
-        companyTab.addEventListener('keydown', e => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                switchTab('company');
-            }
-        });
-        interviewTab.addEventListener('keydown', e => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                switchTab('interview');
-            }
-        });
-    </script>
+  <?php if (!empty($images['items'])): ?>
+    <div style="margin-bottom:2rem;">
+      <h3 style="font-size: 1.3rem; font-weight: 600; color: #2e7d32; margin-bottom: 1rem;">이미지 검색</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem;">
+        <?php foreach ($images['items'] as $img): ?>
+          <a href="<?= esc($img['link']) ?>" target="_blank"
+             style="text-decoration:none; color:#333; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,0.05);">
+            <img src="<?= esc($img['thumbnail']) ?>" alt="<?= esc($img['title']) ?>" style="width:100%; display:block;">
+            <div style="padding:0.5rem; font-size:0.85rem; color:#444; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+              <?= esc(mb_strimwidth(strip_tags($img['title']), 0, 40, '...')) ?>
+            </div>
+          </a>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  <?php endif; ?>
 
-    <?php include APPPATH . 'Views/includes/footer.php'; ?>
-</body>
-</html>
+  <div style="display:flex; justify-content:center; gap:20px; margin:2rem 0;">
+    <div id="company-tab" class="tab-link active" style="padding:10px 20px; background:#e0f2f1; color:#2e7d32; font-weight:bold; border-radius:10px; cursor:pointer;">기업 리뷰</div>
+    <div id="interview-tab" class="tab-link" style="padding:10px 20px; background:#e0f2f1; color:#2e7d32; font-weight:bold; border-radius:10px; cursor:pointer;">면접 리뷰</div>
+  </div>
+
+  <section id="company-review" class="reviews active">
+    <form action="/company/<?= esc($company['id']) ?>/addCompanyReview" method="POST"
+          style="background:#e8f5e9; padding:20px; border-radius:10px; margin-bottom:1.5rem;">
+      <textarea name="review" placeholder="리뷰를 작성해 주세요..." required
+                style="width:100%; padding:10px; border:1px solid #ccc; border-radius:8px; font-size:1rem;"></textarea>
+      <input type="number" name="rating" min="1" max="5" placeholder="별점 (1~5)" required
+             style="width:100%; padding:10px; border:1px solid #ccc; border-radius:8px; font-size:1rem; margin-top:.5rem;" />
+      <button type="submit" style="width:100%; background:#2e7d32; color:white; padding:12px; border:none; border-radius:8px; margin-top:.7rem; font-weight:bold;">리뷰 작성</button>
+    </form>
+    <?php foreach ($companyReviews as $review): ?>
+      <div class="review-card" style="border:1px solid #c8e6c9; background:#f1f8e9; border-radius:10px; padding:15px; margin-bottom:1rem;">
+        <p style="font-size:1rem;"><?= esc($review['review']) ?></p>
+        <p style="color:#777;"><strong>별점:</strong> <?= esc($review['rating']) ?> / 5</p>
+      </div>
+    <?php endforeach; ?>
+  </section>
+
+  <section id="interview-review" class="reviews" style="display:none;">
+    <form action="/company/<?= esc($company['id']) ?>/addInterviewReview" method="POST"
+          style="background:#e8f5e9; padding:20px; border-radius:10px; margin-bottom:1.5rem;">
+      <textarea name="review" placeholder="리뷰를 작성해 주세요..." required
+                style="width:100%; padding:10px; border:1px solid #ccc; border-radius:8px; font-size:1rem;"></textarea>
+      <input type="number" name="rating" min="1" max="5" placeholder="별점 (1~5)" required
+             style="width:100%; padding:10px; border:1px solid #ccc; border-radius:8px; font-size:1rem; margin-top:.5rem;" />
+      <select name="review_type" required
+              style="width:100%; padding:10px; border:1px solid #ccc; border-radius:8px; font-size:1rem; margin-top:.5rem;">
+        <option value="interview">면접</option>
+        <option value="employee">직원</option>
+      </select>
+      <button type="submit" style="width:100%; background:#2e7d32; color:white; padding:12px; border:none; border-radius:8px; margin-top:.7rem; font-weight:bold;">리뷰 작성</button>
+    </form>
+    <?php foreach ($interviewReviews as $review): ?>
+      <div class="review-card" style="border:1px solid #c8e6c9; background:#f1f8e9; border-radius:10px; padding:15px; margin-bottom:1rem;">
+        <h4><?= esc($review['review_type'] === 'interview' ? '면접 리뷰' : '직원 리뷰') ?></h4>
+        <p><?= esc($review['review']) ?></p>
+        <p><strong>별점:</strong> <?= esc($review['rating']) ?> / 5</p>
+      </div>
+    <?php endforeach; ?>
+  </section>
+
+</div>
+
+<script>
+  const companyTab = document.getElementById('company-tab');
+  const interviewTab = document.getElementById('interview-tab');
+  const companyReview = document.getElementById('company-review');
+  const interviewReview = document.getElementById('interview-review');
+
+  companyTab.addEventListener('click', () => {
+    companyTab.classList.add('active');
+    interviewTab.classList.remove('active');
+    companyReview.style.display = 'block';
+    interviewReview.style.display = 'none';
+  });
+
+  interviewTab.addEventListener('click', () => {
+    companyTab.classList.remove('active');
+    interviewTab.classList.add('active');
+    companyReview.style.display = 'none';
+    interviewReview.style.display = 'block';
+  });
+</script>
+
+<?php include APPPATH . 'Views/includes/footer.php'; ?>

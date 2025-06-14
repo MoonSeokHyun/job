@@ -1,103 +1,114 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>기업 리뷰 - 잡허브</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6686738239613464" crossorigin="anonymous"></script>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            background-color: #f5f7fa;
-        }
+<?php include APPPATH . 'Views/includes/header.php'; ?>
+<style>
+  .container {
+    max-width: 1080px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
 
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+  .container h1 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 24px;
+    color: #222;
+  }
 
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #333;
-        }
+  .ad-box {
+    margin-bottom: 30px;
+    text-align: center;
+  }
 
-        .review-card {
-            background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            padding: 20px;
-            margin-bottom: 20px;
-            transition: transform 0.2s;
-        }
+  .review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
 
-        .review-card:hover {
-            transform: translateY(-5px);
-        }
+  .review-card {
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+    transition: box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
 
-        .review-card h3 {
-            margin-top: 0;
-            font-size: 20px;
-            color: #0073e6;
-        }
+  .review-card:hover {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+  }
 
-        .review-card p {
-            margin: 10px 0;
-            color: #444;
-        }
+  .review-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    background: #f5f5f5;
+  }
 
-        .ad-box {
-            margin: 30px 0;
-            text-align: center;
-        }
+  .review-content {
+    padding: 16px 18px 20px;
+    flex-grow: 1;
+  }
 
-        @media (max-width: 600px) {
-            .review-card {
-                padding: 15px;
-            }
-        }
-    </style>
-</head>
-<body>
+  .review-content h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: #00b15d;
+    margin-bottom: 10px;
+  }
 
-    <!-- Header -->
-    <?php include APPPATH . 'Views/includes/header.php'; ?>
+  .review-content p {
+    font-size: 14px;
+    color: #333;
+    margin: 6px 0;
+  }
 
-    <div class="container">
-        <h1>기업 리뷰 목록</h1>
+  .review-content strong {
+    font-weight: 500;
+    color: #111;
+  }
 
-        <section class="info-section">
-        <div class="ad-box">
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-6686738239613464"
-                data-ad-slot="1204098626"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-        </section>
-        <!-- 리뷰 목록 출력 -->
-        <?php if (!empty($reviews)): ?>
-            <?php foreach ($reviews as $review): ?>
-                <div class="review-card">
-                    <h3><?= esc($review['Company Name (Korean)']) ?> (<?= esc($review['Company Name (English)']) ?>)</h3>
-                    <p><strong>리뷰:</strong> <?= esc($review['review']) ?></p>
-                    <p><strong>별점:</strong> <?= esc($review['rating']) ?> / 5</p>
-                </div>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p>리뷰가 아직 없습니다.</p>
-        <?php endif; ?>
+  .no-review {
+    text-align: center;
+    padding: 40px 0;
+    font-size: 15px;
+    color: #666;
+  }
+</style>
+
+<div class="container">
+  <h1>기업 리뷰 목록</h1>
+
+  <section class="info-section">
+    <div class="ad-box">
+      <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-6686738239613464"
+        data-ad-slot="1204098626"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
     </div>
+  </section>
 
-    <!-- Footer -->
-    <?php include APPPATH . 'Views/includes/footer.php'; ?>
+  <?php if (!empty($reviews)): ?>
+    <div class="review-grid">
+      <?php foreach ($reviews as $review): ?>
+        <div class="review-card">
+          <div class="review-content">
+            <h3><?= esc($review['Company Name (Korean)']) ?> (<?= esc($review['Company Name (English)']) ?>)</h3>
+            <p><strong>리뷰:</strong> <?= esc($review['review']) ?></p>
+            <p><strong>별점:</strong> <?= esc($review['rating']) ?> / 5</p>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  <?php else: ?>
+    <div class="no-review">리뷰가 아직 없습니다.</div>
+  <?php endif; ?>
+</div>
 
-</body>
-</html>
+<?php include APPPATH . 'Views/includes/footer.php'; ?>
