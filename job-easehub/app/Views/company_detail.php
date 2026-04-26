@@ -23,15 +23,15 @@
                 <div class="meta-grid">
                     <div class="meta-item">
                         <span class="label">🏢 영문명</span>
-                        <span class="value"><?= esc($company['Company Name (English)']) ?></span>
+                        <span class="value"><?= esc($company['Company Name (English)'] ?? '-') ?></span>
                     </div>
                     <div class="meta-item">
                         <span class="label">📍 본사 위치</span>
-                        <span class="value"><?= esc($company['Headquarters Location']) ?></span>
+                        <span class="value"><?= esc($company['Office Address'] ?? '-') ?></span>
                     </div>
                     <div class="meta-item">
                         <span class="label">🔗 웹사이트</span>
-                        <span class="value"><a href="<?= esc($company['Website URL']) ?>" target="_blank" class="text-link"><?= esc($company['Website URL']) ?> <i class="fa-solid fa-arrow-up-right-from-square"></i></a></span>
+                        <span class="value"><a href="<?= esc($company['Website URL'] ?? '#') ?>" target="_blank" class="text-link"><?= esc($company['Website URL'] ?? '정보 없음') ?> <i class="fa-solid fa-arrow-up-right-from-square"></i></a></span>
                     </div>
                 </div>
             </section>

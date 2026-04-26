@@ -1,10 +1,14 @@
 <?php
+$business = $business ?? [];
 $facilityName = esc($business['business_name'] ?? '사업장명');
-$zipCode = esc($business['zip_code'] ?? '');
-$landLotAddress = esc($business['landlot_address'] ?? '');
-$streetAddress = esc($business['street_address'] ?? '');
-$businessType = esc($business['business_type'] ?? '');
-$owners = esc($business['number_of_owners'] ?? '');
+$zipCode = esc($business['zip_code'] ?? '-');
+$landLotAddress = esc($business['landlot_address'] ?? '-');
+$streetAddress = esc($business['street_address'] ?? '-');
+$businessType = esc($business['business_type'] ?? '-');
+$owners = esc($business['number_of_owners'] ?? '0');
+
+$blog = $blog ?? ['items' => []];
+$images = $images ?? ['items' => []];
 
 preg_match('/([가-힣]+구|[가-힣]+읍|[가-힣]+면)/', $landLotAddress, $m);
 $district = $m[0] ?? '지역';

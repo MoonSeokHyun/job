@@ -26,6 +26,9 @@ class Business extends BaseController
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Business with ID $id not found");
         }
         
+        $data['blog'] = ['items' => []];
+        $data['images'] = ['items' => []];
+
         $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
         $isBot = preg_match('/(bot|crawl|slurp|spider|mediapartners|daum)/i', $userAgent);
         

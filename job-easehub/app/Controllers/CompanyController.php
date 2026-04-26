@@ -82,6 +82,9 @@ class CompanyController extends BaseController
         // 면접 리뷰 가져오기
         $interviewReviews = $interviewReviewModel->getInterviewReviewsByCompany($id);
 
+        $blog = ['items' => []];
+        $images = ['items' => []];
+
         $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
         $isBot = preg_match('/(bot|crawl|slurp|spider|mediapartners|daum)/i', $userAgent);
         
