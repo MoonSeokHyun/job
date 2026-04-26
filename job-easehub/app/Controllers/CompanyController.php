@@ -17,8 +17,15 @@ class CompanyController extends BaseController
         // 데이터베이스에서 12개 기업만 가져오기
         $companies = $companyModel->limit(12)->findAll();
 
+        $data = [
+            'companies' => $companies,
+            'seoTitle' => '최신 기업 정보 및 면접 리뷰 플랫폼 | JobHub',
+            'seoDescription' => '대한민국 모든 기업의 실시간 리뷰와 면접 후기를 확인하세요. 투명한 채용 시장의 시작, JobHub입니다.',
+            'seoKeywords' => '기업정보, 면접후기, 기업리뷰, 채용정보, 연봉, JobHub, 잡허브'
+        ];
+
         // 뷰로 데이터 전달
-        return view('company_view', ['companies' => $companies]);
+        return view('welcome_message', $data);
     }
 
     public function startUp()

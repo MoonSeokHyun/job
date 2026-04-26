@@ -1,124 +1,138 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>기업 리뷰 사이트</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 2.5em;
-            margin: 0;
-        }
-        .hero {
-            background-image: url('https://source.unsplash.com/1600x900/?business,technology');
-            background-size: cover;
-            background-position: center;
-            height: 400px;
-            color: #fff;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .hero h2 {
-            font-size: 3em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-        }
-        .container {
-            padding: 40px 20px;
-            text-align: center;
-        }
-        .reviews {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .review-card {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 250px;
-            padding: 20px;
-            text-align: left;
-            transition: transform 0.3s ease;
-        }
-        .review-card:hover {
-            transform: scale(1.05);
-        }
-        .review-card img {
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-        }
-        .review-card h3 {
-            font-size: 1.2em;
-            margin: 10px 0;
-        }
-        .review-card p {
-            font-size: 1em;
-            color: #666;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            margin-top: 40px;
-        }
-    </style>
-</head>
-<body>
+<?= view('includes/header') ?>
 
-    <header>
-        <h1>기업 리뷰 사이트</h1>
-    </header>
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>당신의 다음 커리어,<br><span class="highlight">JobHub</span>에서 시작하세요</h1>
+            <p>국내 기업 정보부터 실시간 면접 후기까지, 투명한 취업 시장을 만듭니다.</p>
+        </div>
+    </section>
 
-    <div class="hero">
-        <h2>당신이 원하는 기업 정보를 한 곳에서</h2>
+    <!-- Top Ad -->
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-6686738239613464"
+             data-ad-slot="1204098626"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
-    <div class="container">
-        <h2>기업 리뷰</h2>
-        <p>각 기업에 대한 리뷰를 확인하고, 여러분의 의견을 나누어 보세요.</p>
+    <!-- Main Content -->
+    <div class="container main-layout">
+        <div class="content-area">
+            <div class="section-header">
+                <h2>🏢 최근 등록된 기업</h2>
+                <a href="<?= site_url('business') ?>" class="view-all">전체보기 <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
 
-        <div class="reviews">
-            <div class="review-card">
-                <img src="https://via.placeholder.com/60" alt="Reviewer 1">
-                <h3>기업 A</h3>
-                <p>"매우 유연한 근무 환경과 직원 복지가 뛰어난 기업입니다."</p>
+            <div class="company-grid">
+                <?php foreach ($companies as $company): ?>
+                <a href="<?= site_url('company/' . $company['id']) ?>" class="company-card">
+                    <div class="company-info">
+                        <div class="company-name"><?= esc($company['Company Name (Korean)']) ?></div>
+                        <div class="company-industry"><?= esc($company['Industry Classification']) ?></div>
+                        <p class="company-desc"><?= esc($company['One-liner Description']) ?></p>
+                    </div>
+                    <div class="company-footer">
+                        <span>정보 상세보기 <i class="fa-solid fa-chevron-right"></i></span>
+                    </div>
+                </a>
+                <?php endforeach; ?>
             </div>
-            <div class="review-card">
-                <img src="https://via.placeholder.com/60" alt="Reviewer 2">
-                <h3>기업 B</h3>
-                <p>"업무는 까다롭지만 성장할 수 있는 기회가 많습니다."</p>
-            </div>
-            <div class="review-card">
-                <img src="https://via.placeholder.com/60" alt="Reviewer 3">
-                <h3>기업 C</h3>
-                <p>"팀워크가 뛰어난 기업이며 직원들의 의견을 존중합니다."</p>
+
+            <!-- Middle Ad -->
+            <div class="ad-container" style="margin-top: 3rem;">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-6686738239613464"
+                     data-ad-slot="1204098626"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
         </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar-area">
+            <div class="sidebar-widget">
+                <h3>📢 주요 서비스</h3>
+                <div class="service-links">
+                    <a href="<?= site_url('company_reviews/index') ?>" class="s-link">
+                        <i class="fa-solid fa-comments"></i> 실시간 기업리뷰
+                    </a>
+                    <a href="<?= site_url('interview_reviews/index') ?>" class="s-link">
+                        <i class="fa-solid fa-user-tie"></i> 생생한 면접후기
+                    </a>
+                    <a href="<?= site_url('business') ?>" class="s-link">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i> 기업 데이터 조회
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sidebar Ad -->
+            <div class="sidebar-ad">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-6686738239613464"
+                     data-ad-slot="1204098626"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+        </aside>
     </div>
+</main>
 
-    <footer>
-        <p>&copy; 2025 기업 리뷰 사이트 | All Rights Reserved</p>
-    </footer>
+<style>
+    .hero {
+        background: linear-gradient(135deg, #00b15d 0%, #008a46 100%);
+        color: white;
+        padding: 5rem 1.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    .hero h1 { font-size: 3rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; }
+    .hero .highlight { color: #ccff00; }
+    .hero p { font-size: 1.25rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
 
-</body>
-</html>
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .main-layout { display: grid; grid-template-columns: 1fr 320px; gap: 3rem; }
+
+    .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+    .section-header h2 { font-size: 1.5rem; font-weight: 800; }
+    .view-all { font-size: 0.9rem; font-weight: 600; color: var(--primary); }
+
+    .company-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .company-card { 
+        background: white; border: 1px solid var(--border); border-radius: var(--radius); 
+        padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;
+        transition: 0.3s;
+    }
+    .company-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--primary); }
+    .company-name { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.25rem; color: var(--text); }
+    .company-industry { font-size: 0.85rem; color: var(--primary); font-weight: 600; margin-bottom: 1rem; }
+    .company-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.5; margin-bottom: 1.5rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .company-footer { border-top: 1px solid var(--border); padding-top: 1rem; font-size: 0.85rem; font-weight: 600; color: var(--muted); }
+
+    .sidebar-widget { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 2rem; }
+    .sidebar-widget h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 1.25rem; }
+    .service-links { display: flex; flex-direction: column; gap: 0.75rem; }
+    .s-link { 
+        display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; 
+        background: #f8fafc; border-radius: 0.5rem; font-size: 0.9rem; font-weight: 600;
+    }
+    .s-link i { color: var(--primary); width: 20px; }
+    .s-link:hover { background: #f0fdf4; color: var(--primary); }
+
+    .ad-container { text-align: center; margin: 2rem 0; }
+
+    @media (max-width: 1024px) {
+        .main-layout { grid-template-columns: 1fr; }
+        .hero h1 { font-size: 2.25rem; }
+    }
+</style>
+
+<?= view('includes/footer') ?>

@@ -6,6 +6,8 @@ use App\Controllers\CompanyController;
 use App\Controllers\SitemapController;
 
 $routes->get('/', [CompanyController::class, 'index']);  // 기본 기업 목록 페이지
+$routes->get('index.php', [CompanyController::class, 'index']); 
+$routes->get('index.php/', [CompanyController::class, 'index']); 
 $routes->get('/search', [CompanyController::class, 'search']);  // 검색 기능
 $routes->get('/company/(:num)', [CompanyController::class, 'detail']);  // 기업 상세 페이지
 $routes->post('/company/(:num)/addCompanyReview', [CompanyController::class, 'addCompanyReview']);
